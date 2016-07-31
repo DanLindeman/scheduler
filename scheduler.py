@@ -27,6 +27,12 @@ USER_DATA = [
  {'user3': ['e', 'h', 'd', 'b']},
  {'user4': ['h', 'd', 'a', 'c']}]
 
+class Model(object):
+
+    def __init__(self, permutations):
+        pass
+
+
 def update():
     for user_data in USER_DATA:
         for user, data in user_data.items():
