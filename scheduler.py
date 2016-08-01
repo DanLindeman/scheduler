@@ -1,5 +1,6 @@
 import random
 import collections
+import itertools
 """
         Room 1    Room 2
       _____________________
@@ -19,7 +20,7 @@ rooms = {room1: [], room2: []}
 
 ROOM_LIST = ['a','b','c','d','e','f','g','h']
 POPULARITY_HASH = {}
-# FITNESS_PERCENTS = []
+FITNESS_PERCENTS = {}
 VOTE_LIST = []
 USER_DATA = [
  {'user1': ['e', 'd', 'b', 'h']},
@@ -27,11 +28,9 @@ USER_DATA = [
  {'user3': ['e', 'h', 'd', 'b']},
  {'user4': ['h', 'd', 'a', 'c']}]
 
-class Model(object):
 
-    def __init__(self, permutations):
-        pass
 
+USERS = ['user1', 'user2', 'user3', 'user4']
 
 def update():
     for user_data in USER_DATA:
@@ -43,24 +42,32 @@ def update_votes(user_data):
         VOTE_LIST.append(vote)
 
 def create_model_rooms():
-    model = {
-    "room1": {1: "",
-              2: "",
-              3: "",
-              4: ""
-             },
-    "room2": {1: "",
-              2: "",
-              3: "",
-              4: ""
-             }
-    }
+    # model = {
+    # "room1": {1: "",
+    #           2: "",
+    #           3: "",
+    #           4: ""
+    #          },
+    # "room2": {1: "",
+    #           2: "",
+    #           3: "",
+    #           4: ""
+    #          }
+    # }
 
-    # for room in ROOM_LIST:
-    #     model['room1'] = 
+    rooms_permutations = itertools.permutations(ROOM_LIST)
+    for rooms in rooms_permutations:
+        print(room)
+        #TODO, pass the first half and second half into the find_happiness
+        find_happiness(rooms[:3], user)
+        find_happiness(rooms[3:], user)
+        
+            
 
-def find_happiness():
-    pass
+def find_happiness(room, user):
+    print(room)
+    print(user)
+    # return how many talks this rooms schedule has in common with the user
 
 def choose_best_model(room_models):
     pass
@@ -71,4 +78,5 @@ def display_vote_count():
 
 update()
 display_vote_count()
+create_model_rooms()
 
